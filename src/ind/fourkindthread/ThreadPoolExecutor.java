@@ -10,7 +10,7 @@ import java.util.concurrent.Executors;
  * Created by weirong.zhang on 16/8/30.
  * 四种线程池的示例,可进一步研究里面的方法
  */
-public class TestSingleThreadExecutor {
+public class ThreadPoolExecutor {
 
     @Test
     public void newSingleThreadExecutor() {
