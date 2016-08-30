@@ -3,6 +3,9 @@ package ind.futurecallable.version2;
 import java.util.Random;
 import java.util.concurrent.*;
 
+/**
+ * 单个线程的 future设计模式
+ */
 public class CallableAndFuture {
     public static void main(String[] args) {
         ExecutorService threadPool = Executors.newSingleThreadExecutor();

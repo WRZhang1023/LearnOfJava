@@ -5,6 +5,10 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
+/**
+ * 单个线程的 future设计模式
+ */
+
 public class CallableAndFuture {
     public static void main(String[] args) {
         Callable<Integer> callable = new Callable<Integer>() {

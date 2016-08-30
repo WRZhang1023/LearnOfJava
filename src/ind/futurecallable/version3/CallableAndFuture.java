@@ -2,6 +2,10 @@ package ind.futurecallable.version3;
 
 import java.util.concurrent.*;
 
+
+/**
+ *  多线程多个返回的模式
+ */
 public class CallableAndFuture {
     public static void main(String[] args) {
         ExecutorService threadPool = Executors.newCachedThreadPool();
@@ -25,4 +29,4 @@ public class CallableAndFuture {
             }
         }
     }
-} 
+}
