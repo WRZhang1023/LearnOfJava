@@ -1,4 +1,4 @@
-package ind.futurecallable.version3;
+package ind.future_callable.version3;
 
 import java.util.concurrent.*;
 

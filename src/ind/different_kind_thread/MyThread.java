@@ -1,4 +1,4 @@
-package ind.fourkindthread;
+package ind.different_kind_thread;
 
 /**
  * Created by weirong.zhang on 16/8/30.

@@ -1,4 +1,4 @@
-package ind.notifyandnotifyall;
+package ind.notify_notifyall;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ class WidgetMaker extends Thread {
     public void run() {
         try {
             while (true) {
-                Thread.sleep(5000);//act busy
+                Thread.sleep(1000);//act busy
                 Widget w = new Widget();
                 //也就是说需要5秒钟才能新产生一个Widget，这决定了一定要用notify而不是notifyAll
                 //因为上面两行代码不是同步的，如果用notifyAll则所有线程都企图冲出wait状态
