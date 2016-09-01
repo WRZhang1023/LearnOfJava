@@ -48,6 +48,11 @@ void	join(long millis, int nanos)
 第五段:线程优先级
 ======================================
 
+public static final int	MAX_PRIORITY	10
+public static final int	MIN_PRIORITY	1
+public static final int	NORM_PRIORITY	5
+
+优先级可以看成一种特权，优先级高的，获取CPU调度的机会就大，优先级低的，获取CPU调度的机会就小
 
 ======================================
 第六段:相关知识
