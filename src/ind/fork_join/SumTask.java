@@ -7,6 +7,16 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
 /**
+ * Result solve(Problem problem) {
+ * if (problem is small)
+ * directly solve problem
+ * else {
+ * split problem into independent parts
+ * fork new subtasks to solve each part
+ * join all subtasks
+ * compose result from subresults
+ * }
+ * }
  */
 public class SumTask extends RecursiveTask<Integer> {
 

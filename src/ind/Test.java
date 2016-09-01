@@ -9,7 +9,8 @@ public class Test {
     @org.junit.Test
     public void midd() {
 
-        int a = (2+2) >>> 2;
+        //查看位移运算符  有无符号
+        int a = (2+2) >>> 1;
         System.out.println(a);
 
     }
