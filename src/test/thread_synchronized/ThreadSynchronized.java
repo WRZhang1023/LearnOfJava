@@ -46,10 +46,25 @@ public class ThreadSynchronized {
 
 
     @Test
-    public void runAtom() throws InterruptedException {
-        AtomAction notAtomAction = new AtomAction("zhangsan");
+    public void runAtomOnMember() throws InterruptedException {
+        AtomActionOnMenber notAtomAction = new AtomActionOnMenber("zhangsan");
 
         //两个线程使用了相同的类实现,减少了创建对象,共享了内部变量,使用了 synchronized 锁定了共享资源,让资源的函数变成了原子操作
+        Thread thread1 = new Thread(notAtomAction);
+        Thread thread2 = new Thread(notAtomAction);
+
+        thread1.start();
+        thread2.start();
+
+        thread1.join();
+        thread2.join();
+
+    }
+    @Test
+    public void runAtomOnFun() throws InterruptedException {
+        AtomActionOnFunction notAtomAction = new AtomActionOnFunction("zhangsan");
+
+        //两个线程使用了相同的类实现,减少了创建对象,共享了内部变量,使用了 synchronized 锁定了方法,让函数变成了原子操作
         Thread thread1 = new Thread(notAtomAction);
         Thread thread2 = new Thread(notAtomAction);
 
@@ -87,11 +102,14 @@ class NotAtomAction implements Runnable {
     }
 }
 
-class AtomAction implements Runnable {
+/**
+ * synchronized 用在了共享变量上面
+ */
+class AtomActionOnMenber implements Runnable {
     private String name;
     private int i;
 
-    public AtomAction(String name) {
+    public AtomActionOnMenber(String name) {
         this.name = name;
     }
 
@@ -111,5 +129,34 @@ class AtomAction implements Runnable {
             System.out.println("the time of this opention done by this object " + i);
         }
 
+    }
+}
+/**
+ * synchronized 用在了共有方法上面
+ */
+class AtomActionOnFunction implements Runnable {
+    private String name;
+    private int i;
+
+    public AtomActionOnFunction(String name) {
+        this.name = name;
+    }
+
+    public synchronized void printLetter(){
+        for (char letter : name.toCharArray()) {
+            System.out.println(Thread.currentThread().getName() + " " + letter);
+            i++;
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("the time of this opention done by this object " + i);
+    }
+
+    @Override
+    public void run() {
+        printLetter();
     }
 }
