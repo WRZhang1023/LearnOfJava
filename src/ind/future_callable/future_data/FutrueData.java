@@ -11,9 +11,11 @@ public class FutrueData {
 
     public synchronized RealData getRealData() {
 
-        if (!flag) {
+        while (!flag) {
             try {
+                System.out.println("wait....");
                 wait();
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -24,10 +26,11 @@ public class FutrueData {
 
     public synchronized void setRealData(RealData realData) {
 
-        if(flag){
+        while (flag) {
+            System.out.println("return....");
             return;
         }
-        this.flag=true;
+        this.flag = true;
         this.realData = realData;
         notifyAll();
     }

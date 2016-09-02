@@ -22,18 +22,25 @@ public class Test {
 
         RealData realData = new RealData();
 
-        try {
-            Thread.sleep(5000);
-            System.out.println("i need more time to process ...");
-            realData.setAddrs("beijing ,China ");
-            realData.setName("ming.wang");
-            realData.setAge(20);
+        new Thread(new Runnable() {
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                    System.out.println("i need more time to process ...");
+                    realData.setAddrs("beijing ,China ");
+                    realData.setName("ming.wang");
+                    realData.setAge(20);
+                    futureDate.setRealData(realData);
 
-        futureDate.setRealData(realData);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }) {
+        }.start();
+
         return futureDate;
     }
 
