@@ -1,0 +1,49 @@
+######################################
+
+目录: 阻塞队列 BlockingQueue  多数生产消费模型的首选数据结构就是队列
+
+######################################
+======================================
+第一段: JKD自带的几种实现方式
+======================================
+1.ArrayBlockingQueue; 一个由数组支持的有界阻塞队列
+2.DelayQueue; Delayed 元素的一个无界阻塞队列，只有在延迟期满时才能从中提取元素,该队列的头部 是延迟期满后保存时间最长的 Delayed 元素。如果延迟都还没有期满，则队列没有头部，并且 poll 将返回 null
+3.LinkedBlockingQueue; 一个基于已链接节点的、范围任意的 blocking queue(一个可改变大小的阻塞队列)
+4.PriorityBlockingQueue; 一个无界阻塞队列，它使用与类 PriorityQueue 相同的顺序规则，并且提供了阻塞获取操作.依据对象的自然排序顺序或者是构造函数所带的Comparator决定的顺序。
+5.SynchronousQueue;一种阻塞队列，其中每个插入操作必须等待另一个线程的对应移除操作 ，反之亦然
+
+======================================
+第二段: 阻塞队列的方法
+======================================
+
+	抛出异常	    特殊值	    阻塞	    超时
+插入	add(e)	    offer(e)	put(e)	offer(e,time,unit)
+移除	remove()	poll()	    take()	poll(time,unit)
+检查	element()	peek()	    不可用	不可用
+
+
+1)add(anObject):把anObject加到BlockingQueue里,即如果BlockingQueue可以容纳,则返回true,否则招聘异常
+
+2)offer(anObject):表示如果可能的话,将anObject加到BlockingQueue里,即如果BlockingQueue可以容纳,则返回true,否则返回false.
+
+3)put(anObject):把anObject加到BlockingQueue里,如果BlockQueue没有空间,则调用此方法的线程被阻断直到BlockingQueue里面有空间再继续.
+
+4)poll(time):取走BlockingQueue里排在首位的对象,若不能立即取出,则可以等time参数规定的时间,取不到时返回null
+
+5)take():取走BlockingQueue里排在首位的对象,若BlockingQueue为空,阻断进入等待状态直到Blocking有新的对象被加入为止
+
+
+
+======================================
+第三段:
+======================================
+
+
+======================================
+第四段:
+======================================
+
+
+======================================
+第五段:
+======================================
