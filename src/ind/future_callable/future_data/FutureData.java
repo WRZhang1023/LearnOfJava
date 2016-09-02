@@ -3,7 +3,7 @@ package ind.future_callable.future_data;
 /**
  * Created by weirong.zhang on 16/9/2.
  */
-public class FutrueData {
+public class FutureData {
 
     private RealData realData;
     private boolean flag = false;

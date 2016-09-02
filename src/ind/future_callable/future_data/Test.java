@@ -9,7 +9,7 @@ public class Test {
     public static void main(String[] args) {
 
         Test test = new Test();
-        FutrueData result = test.returnFutureDate();
+        FutureData result = test.returnFutureDate();
 
         System.out.println(result.getRealData().getName());
 
@@ -17,8 +17,8 @@ public class Test {
     }
 
 
-    public FutrueData returnFutureDate() {
-        FutrueData futureDate = new FutrueData();
+    public FutureData returnFutureDate() {
+        FutureData futureDate = new FutureData();
 
         RealData realData = new RealData();
 
